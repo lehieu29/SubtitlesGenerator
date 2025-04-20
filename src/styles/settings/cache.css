@@ -1,0 +1,241 @@
+/* Cache section styles */
+
+/* Cache section */
+.cache-section {
+  min-height: 400px; /* Ensure the cache section has a minimum height */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Create a 2-column layout */
+  grid-gap: 20px; /* Add gap between columns */
+  height: 100%; /* Take full height of parent */
+}
+
+.cache-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cache-section-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.cache-content {
+  grid-column: span 2; /* Header spans both columns */
+}
+
+.cache-actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.empty-cache-info {
+  background-color: var(--md-surface-1);
+  border-radius: var(--card-border-radius);
+  padding: 16px 20px;
+  margin: 0;
+  color: var(--text-secondary);
+  border: 1px dashed var(--border-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+}
+
+.empty-cache-info p {
+  margin: 0 0 8px 0;
+}
+
+/* Loading indicator */
+.cache-loading {
+  background-color: var(--md-surface-1);
+  border-radius: var(--card-border-radius);
+  padding: 16px 20px;
+  margin: 0;
+  color: var(--text-secondary);
+  text-align: center;
+  position: relative;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.cache-loading p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cache-loading p::after {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--md-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.cache-description {
+  margin: 0.5rem 0 1rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Material Design 3 card for cache details */
+.cache-details {
+  background-color: var(--md-surface-1);
+  border-radius: var(--card-border-radius);
+  padding: 16px 20px;
+  margin: 0;
+  height: 100%;
+  font-size: var(--md-body-medium-size);
+  line-height: var(--md-body-medium-height);
+  animation: fadeIn var(--md-duration-medium2) var(--md-easing-standard);
+  box-shadow: var(--md-elevation-level1);
+  transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.cache-details-header {
+  margin-bottom: 16px;
+}
+
+.cache-details-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.cache-details-summary {
+  background-color: var(--md-surface-2);
+  border-radius: var(--card-border-radius);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.cache-total {
+  margin: 0;
+  font-size: var(--md-body-medium-size);
+  color: var(--text-primary);
+}
+
+.refresh-cache-btn {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--md-shape-pill);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.refresh-cache-btn:hover {
+  background-color: var(--md-surface-2);
+}
+
+.refresh-cache-btn:active {
+  transform: scale(0.98);
+}
+
+.refresh-cache-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-icon {
+  font-size: 1rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.refresh-cache-btn:hover .refresh-icon {
+  transform: rotate(180deg);
+}
+
+/* Cache columns */
+.cache-left-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.cache-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Cache status message */
+.cache-status-message {
+  padding: 12px 16px;
+  margin: 0;
+  border-radius: var(--card-border-radius);
+  font-size: var(--md-body-medium-size);
+  animation: fadeIn var(--md-duration-medium2) var(--md-easing-standard);
+  height: 100%;
+}
+
+.cache-status-message.status-success {
+  background-color: var(--success-background);
+  color: var(--success-color);
+  border-left: 4px solid var(--success-color);
+}
+
+.cache-status-message.status-error {
+  background-color: var(--error-background);
+  color: var(--error-color);
+  border-left: 4px solid var(--error-color);
+}
+
+.cache-status-message.status-info {
+  background-color: var(--info-background, rgba(33, 150, 243, 0.1));
+  color: var(--info-color, #2196f3);
+  border-left: 4px solid var(--info-color, #2196f3);
+}
+
+.cache-details-item {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--md-outline-variant);
+  transition: border-color var(--transition-speed);
+}
+
+.cache-details-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.cache-details-item h4 {
+  margin: 0 0 8px 0;
+  font-size: var(--md-title-small-size);
+  line-height: var(--md-title-small-height);
+  font-weight: var(--md-title-small-weight);
+  color: var(--text-primary);
+  transition: color var(--transition-speed);
+}
+
+.cache-details-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--md-body-medium-size);
+  line-height: var(--md-body-medium-height);
+  transition: color var(--transition-speed);
+}

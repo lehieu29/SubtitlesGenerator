@@ -1,0 +1,139 @@
+/* Header and footer styles */
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color var(--transition-speed);
+  padding-bottom: 0;
+}
+
+.settings-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  transition: color var(--transition-speed);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: var(--text-primary);
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+/* Footer with action buttons */
+.settings-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  transition: border-color var(--transition-speed);
+  /* Make the footer sticky */
+  position: sticky;
+  bottom: 0;
+  z-index: 10; /* Higher z-index to ensure it stays on top */
+  /* Ensure the footer has proper border radius at the bottom */
+  border-bottom-left-radius: var(--modal-border-radius);
+  border-bottom-right-radius: var(--modal-border-radius);
+  /* Add background color to ensure content doesn't show through */
+  background-color: var(--background-primary);
+  /* Add shadow for better visual separation */
+  box-shadow: 0 -4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.settings-footer-left {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.settings-footer-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Match the gap in settings-footer-left */
+  margin-right: 0;
+}
+
+/* Theme toggle button in settings footer */
+.settings-footer .theme-toggle {
+  background: none;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.settings-footer .theme-toggle:hover {
+  background-color: var(--hover-overlay);
+  color: var(--text-primary);
+}
+
+/* Language selector in settings footer */
+.settings-footer .language-selector-container {
+  height: 40px; /* Match the height of factory-reset-btn */
+}
+
+/* Ensure language selector button in footer has consistent styling */
+.settings-footer .language-selector-button {
+  display: flex;
+  align-items: center;
+  height: 40px; /* Explicitly set height to match factory-reset-btn */
+}
+
+.settings-footer-right {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .settings-footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .settings-footer-left,
+  .settings-footer-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .settings-footer-left {
+    flex-wrap: wrap;
+  }
+
+  .settings-footer-controls {
+    display: flex;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .factory-reset-btn,
+  .cancel-btn,
+  .save-btn {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+}

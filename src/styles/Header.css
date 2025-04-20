@@ -1,0 +1,264 @@
+/* Header.css - Simple clean design */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--background-primary);
+  box-shadow: 0 2px 10px var(--shadow-color);
+  position: relative;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  min-height: 60px;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: transparent;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-family: 'Be Vietnam Pro', 'Noto Sans Vietnamese', 'Lexend', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.25px;
+  transition: transform 0.3s ease;
+  cursor: pointer; /* Indicate it's clickable */
+  white-space: nowrap;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-title:hover {
+  transform: scale(1.02);
+  text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 10; /* Ensure header actions are above other elements */
+}
+
+/* Material Design 3 pill-shaped language selector */
+.language-selector {
+  position: relative;
+  overflow: hidden;
+}
+
+.language-selector select {
+  appearance: none;
+  background-color: var(--md-surface-1);
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--md-shape-pill);
+  color: var(--md-on-surface);
+  cursor: pointer;
+  font-size: var(--md-label-medium-size);
+  line-height: var(--md-label-medium-height);
+  font-weight: 500; /* Medium weight for consistency */
+  font-family: 'Roboto', 'Segoe UI', sans-serif; /* Consistent font family */
+  padding: 8px 32px 8px 16px;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard),
+              color var(--md-duration-medium2) var(--md-easing-standard),
+              border-color var(--md-duration-medium2) var(--md-easing-standard),
+              transform var(--md-duration-medium2) var(--md-easing-emphasized);
+  height: 40px; /* Fixed height for consistency */
+  position: relative;
+  z-index: 1; /* Ensure it's above the state layer */
+}
+
+/* State layer for hover effect */
+.language-selector::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard);
+  pointer-events: none;
+  border-radius: var(--md-shape-pill);
+  z-index: 0;
+}
+
+.language-selector:hover::before {
+  background-color: color-mix(in srgb, var(--md-primary), transparent var(--md-state-hover-opacity));
+}
+
+/* Material Design 3 dropdown arrow */
+.language-selector::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--md-on-surface);
+  pointer-events: none;
+  transition: transform var(--md-duration-medium2) var(--md-easing-standard);
+}
+
+/* State layer for hover effect */
+.language-selector select:hover {
+  border-color: var(--md-primary);
+  transform: translateY(-2px);
+}
+
+.language-selector:hover::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Material Design 3 theme toggle button */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--md-surface-1);
+  border: 1px solid var(--md-outline-variant);
+  border-radius: 50%; /* Circular button */
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard),
+              color var(--md-duration-medium2) var(--md-easing-standard),
+              border-color var(--md-duration-medium2) var(--md-easing-standard),
+              transform var(--md-duration-medium2) var(--md-easing-emphasized);
+  color: var(--md-on-surface);
+  height: 40px;
+  width: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* State layer for hover effect */
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.theme-toggle:hover::before {
+  background-color: color-mix(in srgb, var(--md-primary), transparent var(--md-state-hover-opacity));
+}
+
+.theme-toggle:hover {
+  border-color: var(--md-primary);
+  transform: rotate(15deg);
+}
+
+.theme-toggle svg {
+  stroke: var(--text-primary);
+  transition: stroke 0.3s ease, transform 0.5s ease;
+}
+
+/* Material Design 3 pill-shaped settings button */
+.settings-button {
+  display: flex;
+  align-items: center;
+  background: var(--md-surface-1);
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--md-shape-pill);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  color: var(--md-on-surface);
+  font-size: var(--md-label-medium-size);
+  line-height: var(--md-label-medium-height);
+  font-weight: 500; /* Medium weight for consistency */
+  font-family: 'Roboto', 'Segoe UI', sans-serif; /* Consistent font family */
+  height: 40px; /* Fixed height for consistency */
+  position: relative;
+  overflow: hidden;
+}
+
+/* State layer for hover effect */
+.settings-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard);
+  pointer-events: none;
+  border-radius: var(--md-shape-pill);
+}
+
+.settings-button:hover::before {
+  background-color: color-mix(in srgb, var(--md-primary), transparent var(--md-state-hover-opacity));
+}
+
+.settings-button:hover {
+  border-color: var(--md-primary);
+  transform: translateY(-2px);
+}
+
+.settings-button svg {
+  margin-right: 8px;
+  stroke: currentColor;
+  transition: stroke var(--md-duration-medium2) var(--md-easing-standard);
+}
+
+/* Simple responsive design */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .header-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .settings-button span {
+    display: none;
+  }
+
+  .settings-button svg {
+    margin-right: 0;
+  }
+
+  .settings-button {
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .header-title {
+    font-size: 1.1rem;
+    max-width: 70%;
+  }
+
+  .app-header {
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .header-title {
+    font-size: 1rem;
+  }
+
+  .app-header {
+    padding: 0.75rem 0.75rem;
+  }
+}

@@ -1,0 +1,372 @@
+.subtitles-input-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+.subtitles-input-modal {
+  background-color: var(--md-surface-1);
+  border-radius: 12px;
+  box-shadow: var(--md-elevation-level3);
+  border: 1px solid var(--md-outline-variant);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modal-appear 0.3s ease-out;
+}
+
+/* Specific adjustments for light theme */
+[data-theme="light"] .subtitles-input-modal {
+  background-color: var(--md-surface);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subtitles-input-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--md-outline-variant);
+  background-color: var(--md-surface-2);
+}
+
+/* Light theme header styling */
+[data-theme="light"] .subtitles-input-modal-header {
+  background-color: var(--md-surface-1);
+  border-bottom: 1px solid var(--md-outline);
+}
+
+.subtitles-input-modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: var(--text-color-secondary);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background-color: var(--hover-color);
+  color: var(--text-color);
+}
+
+.subtitles-input-modal-content {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--md-primary-rgb), 0.4) rgba(var(--md-outline-variant-rgb), 0.2);
+}
+
+/* Custom scrollbar for Webkit browsers */
+.subtitles-input-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.subtitles-input-modal-content::-webkit-scrollbar-track {
+  background: rgba(var(--md-outline-variant-rgb), 0.2);
+  border-radius: 10px;
+}
+
+.subtitles-input-modal-content::-webkit-scrollbar-thumb {
+  background: rgba(var(--md-primary-rgb), 0.4);
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.subtitles-input-modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--md-primary-rgb), 0.6);
+}
+
+/* Dark theme scrollbar adjustments for modal content */
+[data-theme="dark"] .subtitles-input-modal-content::-webkit-scrollbar-track {
+  background: rgba(var(--md-outline-variant-rgb), 0.3);
+}
+
+[data-theme="dark"] .subtitles-input-modal-content::-webkit-scrollbar-thumb {
+  background: rgba(var(--md-primary-rgb), 0.5);
+}
+
+[data-theme="dark"] .subtitles-input-modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--md-primary-rgb), 0.7);
+}
+
+[data-theme="dark"] .subtitles-input-modal-content {
+  scrollbar-color: rgba(var(--md-primary-rgb), 0.5) rgba(var(--md-outline-variant-rgb), 0.3);
+}
+
+.explanation {
+  margin-bottom: 16px;
+  color: var(--text-color-secondary);
+  line-height: 1.5;
+}
+
+.example {
+  background-color: rgba(var(--md-primary-container-rgb), 0.1);
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: var(--md-elevation-level1);
+}
+
+/* Light theme example styling */
+[data-theme="light"] .example {
+  background-color: rgba(var(--md-primary-container-rgb), 0.08);
+  border-left: 4px solid var(--primary-color);
+}
+
+.example h3 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.example pre {
+  margin: 0;
+  font-family: monospace;
+  white-space: pre-wrap;
+  color: var(--text-color-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.subtitles-input-modal-content textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--md-outline-variant);
+  background-color: var(--md-surface-1);
+  color: var(--text-color);
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  transition: all 0.2s ease;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(var(--md-primary-rgb), 0.4) rgba(var(--md-outline-variant-rgb), 0.2); /* Firefox */
+}
+
+/* Light theme textarea styling */
+[data-theme="light"] .subtitles-input-modal-content textarea {
+  background-color: var(--md-surface);
+  border: 1px solid var(--md-outline);
+}
+
+/* Dark theme textarea styling */
+[data-theme="dark"] .subtitles-input-modal-content textarea {
+  background-color: rgba(var(--md-surface-variant-rgb), 0.3);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(var(--md-outline-variant-rgb), 0.7);
+}
+
+/* Custom scrollbar for textarea in Webkit browsers */
+.subtitles-input-modal-content textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.subtitles-input-modal-content textarea::-webkit-scrollbar-track {
+  background: rgba(var(--md-outline-variant-rgb), 0.2);
+  border-radius: 10px;
+}
+
+.subtitles-input-modal-content textarea::-webkit-scrollbar-thumb {
+  background: rgba(var(--md-primary-rgb), 0.4);
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.subtitles-input-modal-content textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--md-primary-rgb), 0.6);
+}
+
+/* Dark theme scrollbar adjustments for textarea */
+[data-theme="dark"] .subtitles-input-modal-content textarea::-webkit-scrollbar-track {
+  background: rgba(var(--md-outline-variant-rgb), 0.3);
+}
+
+[data-theme="dark"] .subtitles-input-modal-content textarea::-webkit-scrollbar-thumb {
+  background: rgba(var(--md-primary-rgb), 0.5);
+}
+
+[data-theme="dark"] .subtitles-input-modal-content textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--md-primary-rgb), 0.7);
+}
+
+[data-theme="dark"] .subtitles-input-modal-content textarea {
+  scrollbar-color: rgba(var(--md-primary-rgb), 0.5) rgba(var(--md-outline-variant-rgb), 0.3);
+}
+
+.subtitles-input-modal-content textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(var(--md-primary-rgb), 0.2);
+}
+
+/* Light theme focus state */
+[data-theme="light"] .subtitles-input-modal-content textarea:focus {
+  background-color: var(--md-surface-1);
+  box-shadow: 0 0 0 2px rgba(var(--md-primary-rgb), 0.15);
+}
+
+/* Dark theme focus state */
+[data-theme="dark"] .subtitles-input-modal-content textarea:focus {
+  background-color: rgba(var(--md-surface-variant-rgb), 0.4);
+  box-shadow: 0 0 0 2px rgba(var(--md-primary-rgb), 0.25);
+}
+
+.keyboard-shortcuts {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-color-secondary);
+}
+
+.keyboard-shortcuts kbd {
+  background-color: var(--md-surface-2);
+  border: 1px solid var(--md-outline-variant);
+  border-radius: 4px;
+  box-shadow: var(--md-elevation-level1);
+  padding: 3px 6px;
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--md-on-surface);
+}
+
+/* Light theme kbd styling */
+[data-theme="light"] .keyboard-shortcuts kbd {
+  background-color: var(--md-surface-1);
+  border: 1px solid var(--md-outline);
+}
+
+.subtitles-input-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--md-outline-variant);
+  background-color: var(--md-surface-2);
+}
+
+/* Light theme footer styling */
+[data-theme="light"] .subtitles-input-modal-footer {
+  background-color: var(--md-surface-1);
+  border-top: 1px solid var(--md-outline);
+}
+
+.cancel-button, .save-button {
+  padding: 8px 20px;
+  border-radius: 20px; /* Pill shape */
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 100px;
+  height: 36px;
+}
+
+.cancel-button {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: none;
+}
+
+.cancel-button:hover {
+  background-color: rgba(var(--md-primary-rgb), 0.08);
+}
+
+/* Light theme cancel button */
+[data-theme="light"] .cancel-button {
+  color: var(--primary-color);
+}
+
+[data-theme="light"] .cancel-button:hover {
+  background-color: rgba(var(--md-primary-rgb), 0.04);
+}
+
+.save-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  box-shadow: var(--md-elevation-level1);
+}
+
+.save-button:hover {
+  background-color: var(--primary-color-dark);
+  box-shadow: var(--md-elevation-level2);
+}
+
+/* Light theme save button */
+[data-theme="light"] .save-button {
+  box-shadow: var(--md-elevation-level1);
+}
+
+/* Active states for buttons */
+.cancel-button:active {
+  background-color: rgba(var(--md-primary-rgb), 0.12);
+  transform: scale(0.98);
+}
+
+.save-button:active {
+  box-shadow: var(--md-elevation-level1);
+  transform: scale(0.98);
+}
+
+/* Dark mode specific adjustments */
+[data-theme="dark"] .subtitles-input-modal {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .subtitles-input-modal {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .keyboard-shortcuts {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

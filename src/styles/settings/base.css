@@ -1,0 +1,37 @@
+/* Base modal structure and overlay */
+
+.settings-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+/* Material Design 3 modal */
+.settings-modal {
+  background-color: var(--background-primary);
+  border-radius: var(--modal-border-radius);
+  max-width: 900px; /* Increased from 600px to 900px */
+  width: 90%;
+  max-height: 90vh; /* Use max-height instead of fixed height */
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--md-elevation-level3);
+  overflow: hidden; /* Hide any content that overflows the container */
+  animation: modal-appear var(--md-duration-medium3) var(--md-easing-emphasized-decelerate);
+  transition: background-color var(--transition-speed);
+  /* Ensure child elements respect the border radius */
+  position: relative;
+  /* Fix for scrollbar appearing outside border radius */
+  transform: translateZ(0);
+  will-change: transform;
+  /* Create a containing block for absolute positioning */
+  contain: layout;
+}
